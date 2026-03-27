@@ -39,7 +39,7 @@ function ProgressBar() {
         id="progress-label"
         className="flex items-center justify-between mb-3"
       >
-        <span className="font-sans text-sm text-white/55">
+        <span className="font-sans text-sm text-white/50">
           Campaign Progress
         </span>
         <span className="font-sans font-semibold text-sm text-gold">
@@ -107,7 +107,7 @@ function ImpactCard({
         border transition-all duration-300 ease-spring
         ${
           selected
-            ? "border-gold bg-gold/8 shadow-gold/20 shadow-lg -translate-y-1"
+            ? "border-gold bg-gold/10 shadow-gold/20 shadow-lg -translate-y-1"
             : "border-white/[0.09] bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-lg"
         }
       `}
@@ -137,7 +137,7 @@ function ImpactCard({
         {title}
       </div>
 
-      <p className="font-sans font-light text-[0.875rem] text-white/55 leading-[1.7] flex-1">
+      <p className="font-sans font-light text-[0.875rem] text-white/50 leading-[1.7] flex-1">
         {description}
       </p>
 
@@ -183,7 +183,7 @@ function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) 
     <motion.article
       variants={cardSpring}
       className="flex flex-col gap-4 p-6 rounded-card
-                 border border-dashed border-white/15
+                 border border-dashed border-white/[0.15]
                  bg-white/[0.02] hover:border-white/25
                  transition-colors duration-200"
       aria-label="Custom donation amount"
@@ -195,7 +195,7 @@ function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) 
         </span>
       </div>
 
-      <p className="font-sans font-light text-[0.875rem] text-white/55 leading-[1.7]">
+      <p className="font-sans font-light text-[0.875rem] text-white/50 leading-[1.7]">
         Enter any amount and support the mission in your own way.
       </p>
 
@@ -270,7 +270,7 @@ function TrustBar() {
             className="flex flex-col items-center text-center gap-3"
           >
             <div
-              className="w-11 h-11 rounded-full bg-sage/12 border border-sage/20
+              className="w-11 h-11 rounded-full bg-sage/10 border border-sage/20
                          flex items-center justify-center"
               aria-hidden="true"
             >

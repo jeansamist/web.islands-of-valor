@@ -12,7 +12,7 @@ export default function Bridge() {
       {/* Subtle radial glow */}
       <div
         className="absolute inset-0 bg-gradient-radial
-                   from-sage/8 via-transparent to-transparent
+                   from-sage/10 via-transparent to-transparent
                    pointer-events-none"
         aria-hidden="true"
       />
@@ -20,14 +20,14 @@ export default function Bridge() {
       {/* Decorative large quotation marks */}
       <span
         className="absolute top-8 left-8 font-serif text-[8rem] leading-none
-                   text-gold/12 select-none pointer-events-none"
+                   text-gold/10 select-none pointer-events-none"
         aria-hidden="true"
       >
         &ldquo;
       </span>
       <span
         className="absolute bottom-0 right-8 font-serif text-[8rem] leading-none
-                   text-gold/12 select-none pointer-events-none"
+                   text-gold/10 select-none pointer-events-none"
         aria-hidden="true"
       >
         &rdquo;

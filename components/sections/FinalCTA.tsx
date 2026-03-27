@@ -55,7 +55,7 @@ export default function FinalCTA() {
 
           <motion.p
             variants={fadeUp}
-            className="font-sans font-light text-white/58 text-[1.05rem] leading-[1.8] mb-10"
+            className="font-sans font-light text-white/60 text-[1.05rem] leading-[1.8] mb-10"
           >
             Your support helps us create connection, opportunity, and lasting
             impact for veterans across the U.S. Virgin Islands.

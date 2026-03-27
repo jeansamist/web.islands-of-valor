@@ -89,7 +89,7 @@ function NewsletterForm() {
               {error}
             </p>
           )}
-          <p className="font-sans text-[0.72rem] text-white/22">
+          <p className="font-sans text-[0.72rem] text-white/20">
             No spam, ever. Unsubscribe anytime.
           </p>
         </form>
@@ -125,7 +125,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2.5 text-white no-underline group w-fit"
               aria-label="Islands of Valor — Home"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 border border-gold/25 group-hover:bg-gold/25 transition-colors">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/[0.15] border border-gold/25 group-hover:bg-gold/25 transition-colors">
                 <Anchor size={16} strokeWidth={1.5} className="text-gold" />
               </span>
               <span className="font-serif text-[1.2rem] leading-none tracking-tight">

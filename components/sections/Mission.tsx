@@ -18,7 +18,7 @@ const PILLARS = [
     title: "Restoring Connection",
     copy: "Many veterans live disconnected from support systems. We are building the Territory's first dedicated peer network through local meetups, workshops, and shared spaces.",
     accent: "text-sage",
-    bg: "bg-sage/8 border-sage/15",
+    bg: "bg-sage/10 border-sage/[0.15]",
     iconBg: "bg-sage/10",
   },
   {
@@ -27,7 +27,7 @@ const PILLARS = [
     title: "Driving Opportunity",
     copy: "We help veterans translate skills into meaningful opportunities — from leading excursions to creating high-quality local products for the VI economy.",
     accent: "text-gold",
-    bg: "bg-gold/5 border-gold/12",
+    bg: "bg-gold/5 border-gold/10",
     iconBg: "bg-gold/10",
   },
   {
@@ -37,7 +37,7 @@ const PILLARS = [
     copy: "Our veterans serve as stewards of the culture, history, and environment of the islands, preserving our home for future generations.",
     accent: "text-navy-light",
     bg: "bg-navy/5 border-navy/10",
-    iconBg: "bg-navy/8",
+    iconBg: "bg-navy/10",
   },
 ] as const;
 

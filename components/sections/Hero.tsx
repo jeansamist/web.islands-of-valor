@@ -41,7 +41,7 @@ function PartnerBar() {
             >
               {i > 0 && (
                 <span
-                  className="hidden sm:block w-px h-4 bg-white/15"
+                  className="hidden sm:block w-px h-4 bg-white/[0.15]"
                   aria-hidden="true"
                 />
               )}
@@ -135,7 +135,7 @@ export default function Hero() {
           {/* Sub-headline */}
           <motion.p
             variants={heroItem}
-            className="text-white/72 font-sans font-light text-[1.1rem] leading-[1.8] mb-10 max-w-[540px]"
+            className="text-white/70 font-sans font-light text-[1.1rem] leading-[1.8] mb-10 max-w-[540px]"
           >
             We&rsquo;re a nonprofit supporting veterans and their families
             across the U.S. Virgin Islands &mdash; connecting them to peer

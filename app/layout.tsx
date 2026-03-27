@@ -1,23 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
-
-// ─── Font Configuration ───────────────────────────────────────────────────────
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -77,6 +59,9 @@ export const viewport: Viewport = {
 };
 
 // ─── Root Layout ──────────────────────────────────────────────────────────────
+// Fonts are loaded via <link> at runtime (browser), not at build time.
+// This avoids next/font/google failing when Google Fonts is unreachable
+// during `next build` (e.g. restricted network / CI environments).
 
 export default function RootLayout({
   children,
@@ -84,12 +69,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${dmSans.variable}`}
-      suppressHydrationWarning
-    >
-      <body className="font-sans antialiased bg-greige-pale text-navy overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased bg-greige-pale text-navy overflow-x-hidden">
         {children}
       </body>
     </html>
