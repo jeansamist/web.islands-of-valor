@@ -21,17 +21,17 @@ interface NavItem {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Mission & Impact", href: "#mission" },
-  { label: "Our Programs", href: "#programs" },
-  { label: "Our Team", href: "#team" },
-  { label: "Updates", href: "#momentum" },
-  { label: "Contact", href: "#contact" },
+  { label: "Mission & Impact", href: "/#mission" },
+  { label: "Our Programs", href: "/programs" },
+  { label: "Our Team", href: "/#team" },
+  { label: "Updates", href: "/#momentum" },
+  { label: "Contact", href: "/#contact" },
   {
     label: "Get Involved",
     dropdown: [
-      { label: "Donate", href: "#donate" },
-      { label: "Partner With Us", href: "#contact" },
-      { label: "Volunteer", href: "#contact" },
+      { label: "Donate", href: "/#donate" },
+      { label: "Partner With Us", href: "/#contact" },
+      { label: "Volunteer", href: "/#contact" },
     ],
   },
 ];
@@ -205,7 +205,7 @@ function MobileDrawer({
 
             <div className="p-6 border-t border-white/10">
               <Link
-                href="#donate"
+                href="/#donate"
                 onClick={onClose}
                 className="block w-full text-center bg-gold text-navy-deep
                            font-sans font-semibold text-sm tracking-wide
@@ -266,7 +266,7 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             {/* Desktop CTA */}
             <Link
-              href="#donate"
+              href="/#donate"
               className="hidden lg:inline-flex items-center gap-2
                          bg-transparent border border-gold/60 text-gold
                          font-sans font-medium text-sm tracking-wide

@@ -162,7 +162,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="#programs"
+              href="/programs"
               className="inline-flex items-center justify-center gap-2.5
                          bg-transparent text-white
                          font-sans font-normal text-sm tracking-wide
