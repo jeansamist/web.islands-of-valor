@@ -86,7 +86,7 @@ function ProgramsHero() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/program.jpg"
+          src="/program-2.jpg"
           alt="Veterans in conversation during a community program"
           fill
           priority
@@ -268,7 +268,7 @@ function ProgramsBridge() {
     >
       <div className="relative min-h-[340px] overflow-hidden lg:min-h-[560px]">
         <Image
-          src="/program-2.jpg"
+          src="/program.jpg"
           alt="Veterans gathering through an Islands of Valor program"
           fill
           className="object-cover object-center"
