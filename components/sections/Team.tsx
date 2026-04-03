@@ -1,31 +1,26 @@
 "use client";
 
-import Image from "next/image";
+import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/animations";
 import { motion } from "framer-motion";
-import {
-  fadeUp,
-  staggerContainer,
-  cardSpring,
-  VIEWPORT_ONCE,
-} from "@/lib/animations";
+import Image from "next/image";
+
 import { TEAM_MEMBERS } from "@/lib/data";
 
 export default function Team() {
   return (
     <section
       id="team"
-      className="section-padding bg-greige-pale"
+      className="bg-white"
       aria-labelledby="team-heading"
     >
-      <div className="max-w-[1280px] mx-auto">
-        {/* Header */}
-        <div className="max-w-[620px]">
+      <div className="mx-auto flex max-w-[1780px] flex-col py-20 pt-6 lg:gap-12 xl:flex-row">
+        <div className="flex-1 space-y-6 bg-brand-blue p-6 md:p-12">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
-            className="text-sage font-sans font-semibold text-[0.7rem] tracking-[0.18em] uppercase mb-4"
+            className="inline-block bg-brand-red px-2 py-1 font-montserrat text-sm font-semibold uppercase text-white"
           >
             The People
           </motion.p>
@@ -34,81 +29,81 @@ export default function Team() {
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
-            transition={{ delay: 0.08 }}
+            transition={{ delay: 0.06 }}
             id="team-heading"
-            className="heading-serif text-display-xl text-navy mb-5"
+            className="font-rundale text-4xl font-bold leading-tight text-white md:text-5xl xl:text-6xl"
           >
-            Meet the People Behind{" "}
-            <em className="italic text-sage">the Mission</em>
+            Meet the People Behind
+            <br />
+            the Mission.
           </motion.h2>
-          <motion.p
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
-            transition={{ delay: 0.14 }}
-            className="font-sans font-light text-navy/60 text-[1.05rem] leading-[1.8]"
+            transition={{ delay: 0.1 }}
+            className="border-t border-white pt-6 font-montserrat text-base leading-relaxed text-white md:text-lg"
           >
-            Islands of Valor is built by individuals who believe those who
-            served deserve more than recognition &mdash; they deserve community
-            and a place to belong.
-          </motion.p>
+            Islands of Valor is built by people who believe veterans deserve
+            more than gratitude. They deserve connection, steady support, and a
+            community that continues to show up for them.
+          </motion.div>
         </div>
 
-        {/* Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT_ONCE}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          role="list"
-          aria-label="Team members"
-        >
-          {TEAM_MEMBERS.map((member) => (
-            <motion.article
-              key={member.name}
-              variants={cardSpring}
-              role="listitem"
-              className="group bg-white rounded-card border border-greige/40
-                         overflow-hidden shadow-card
-                         hover:shadow-card-hover hover:-translate-y-1.5
-                         transition-all duration-300 ease-spring"
-            >
-              {/* Photo */}
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-navy to-sage">
-                {member.imageSrc && (
-                  <Image
-                    src={member.imageSrc}
-                    alt={member.imageAlt ?? member.name}
-                    fill
-                    className="object-cover object-center
-                               group-hover:scale-105 transition-transform duration-500 ease-spring"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                )}
-                {/* Overlay */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent"
-                  aria-hidden="true"
-                />
-              </div>
+        <div className="w-full md:max-w-4xl">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            className="grid grid-cols-1"
+            role="list"
+            aria-label="Team members"
+          >
+            {TEAM_MEMBERS.map((member, idx) => (
+              <motion.article
+                key={member.name}
+                variants={fadeUp}
+                role="listitem"
+                className={
+                  "grid gap-0 border-gray-100 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] " +
+                  (idx < TEAM_MEMBERS.length - 1 ? "border-b" : "")
+                }
+              >
+                <div className="relative min-h-[260px] bg-gray-100 md:min-h-full">
+                  {member.imageSrc && (
+                    <Image
+                      src={member.imageSrc}
+                      alt={member.imageAlt ?? member.name}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 260px"
+                    />
+                  )}
+                </div>
 
-              {/* Info */}
-              <div className="p-6">
-                <h3 className="font-serif text-[1.2rem] font-semibold text-navy">
-                  {member.name}
-                </h3>
-                <p className="font-sans font-semibold text-[0.72rem] tracking-[0.1em] uppercase text-sage mt-1 mb-3">
-                  {member.role}
-                </p>
-                <p className="font-sans font-light text-[0.875rem] text-navy/60 leading-[1.75] italic">
-                  &ldquo;{member.why}&rdquo;
-                </p>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+                <div className="flex flex-col gap-4 p-8 md:p-10">
+                  <div
+                    className="h-[4px] w-10 bg-brand-blue"
+                    aria-hidden="true"
+                  />
+                  <div className="space-y-2">
+                    <p className="font-montserrat text-xs font-semibold uppercase tracking-[0.16em] text-brand-red md:text-sm">
+                      {member.role}
+                    </p>
+                    <h3 className="font-rundale text-2xl font-bold text-black md:text-3xl">
+                      {member.name}
+                    </h3>
+                  </div>
+                  <p className="max-w-2xl font-montserrat text-base leading-relaxed text-gray-700 md:text-lg">
+                    &ldquo;{member.why}&rdquo;
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

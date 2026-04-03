@@ -1,22 +1,21 @@
 "use client";
 
+import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/animations";
 import { motion } from "framer-motion";
-import { RefreshCw, CheckCircle } from "lucide-react";
-import {
-  fadeUp,
-  staggerContainer,
-  VIEWPORT_ONCE,
-} from "@/lib/animations";
+import { CheckCircle, RefreshCw } from "lucide-react";
+
 import { MOMENTUM_ITEMS } from "@/lib/data";
 import type { MomentumStatus } from "@/types";
-
-// ─── Status Badge ─────────────────────────────────────────────────────────────
 
 function StatusBadge({ status }: { status: MomentumStatus }) {
   if (status === "in-progress") {
     return (
       <span className="badge-progress" aria-label="Status: In Progress">
-        <RefreshCw size={10} strokeWidth={2} className="animate-spin [animation-duration:3s]" />
+        <RefreshCw
+          size={10}
+          strokeWidth={2}
+          className="animate-spin [animation-duration:3s]"
+        />
         In Progress
       </span>
     );
@@ -30,98 +29,98 @@ function StatusBadge({ status }: { status: MomentumStatus }) {
   );
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function Momentum() {
   return (
     <section
       id="momentum"
-      className="section-padding bg-white"
+      className="bg-white"
       aria-labelledby="momentum-heading"
     >
-      <div className="max-w-[1280px] mx-auto">
-        {/* Header */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT_ONCE}
-          className="text-sage font-sans font-semibold text-[0.7rem] tracking-[0.18em] uppercase mb-4"
-        >
-          Right Now
-        </motion.p>
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT_ONCE}
-          transition={{ delay: 0.08 }}
-          id="momentum-heading"
-          className="heading-serif text-display-xl text-navy mb-16"
-        >
-          What We Are Building{" "}
-          <em className="italic text-sage">Right Now</em>
-        </motion.h2>
+      <div className="mx-auto flex max-w-[1780px] flex-col py-20 pt-6 lg:gap-12 xl:flex-row xl:items-start">
+        <div className="w-full self-start space-y-6 bg-brand-blue p-6 md:p-12 xl:sticky xl:top-24 xl:max-w-[420px]">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            className="inline-block bg-brand-red px-2 py-1 font-montserrat text-sm font-semibold uppercase text-white"
+          >
+            Right Now
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            transition={{ delay: 0.06 }}
+            id="momentum-heading"
+            className="font-rundale text-4xl font-bold leading-tight text-white md:text-5xl xl:text-6xl"
+          >
+            What We Are Building
+            <br />
+            Right Now.
+          </motion.h2>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            transition={{ delay: 0.1 }}
+            className="border-t border-white pt-6 font-montserrat text-base leading-relaxed text-white md:text-lg"
+          >
+            These are the initiatives taking shape right now as we build
+            stronger veteran support across the islands, one practical step at a
+            time.
+          </motion.div>
+        </div>
 
-        {/* Timeline */}
-        <motion.ol
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT_ONCE}
-          className="max-w-[760px] space-y-0"
-          aria-label="Current initiatives"
-        >
-          {MOMENTUM_ITEMS.map((item, idx) => (
-            <motion.li
-              key={item.title}
-              variants={fadeUp}
-              className="relative flex gap-8 pb-10 last:pb-0"
-            >
-              {/* Timeline spine */}
-              {idx < MOMENTUM_ITEMS.length - 1 && (
-                <div
-                  className="absolute left-[17px] top-9 bottom-0 w-px
-                             bg-gradient-to-b from-greige to-transparent"
-                  aria-hidden="true"
-                />
-              )}
-
-              {/* Node */}
-              <div className="flex-shrink-0 flex flex-col items-center pt-1" aria-hidden="true">
-                <div
-                  className={`
-                    w-9 h-9 rounded-full border-2 flex items-center justify-center
-                    ${
-                      item.status === "in-progress"
-                        ? "border-sage bg-sage/10"
-                        : "border-greige-dark bg-greige-pale"
+        <div className="flex-1">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            className="grid grid-cols-1"
+            role="list"
+            aria-label="Current initiatives"
+          >
+            {MOMENTUM_ITEMS.map((item, idx) => (
+              <motion.article
+                key={item.title}
+                variants={fadeUp}
+                role="listitem"
+                className={
+                  "flex flex-col gap-5 p-8 md:p-10 lg:flex-row lg:items-start lg:gap-10 " +
+                  (idx < MOMENTUM_ITEMS.length - 1
+                    ? "border-b border-gray-100"
+                    : "")
+                }
+              >
+                <div className="inline-flex flex-col gap-4 lg:max-w-[320px] lg:flex-shrink-0">
+                  <div
+                    className={
+                      "h-[4px] w-10 " +
+                      (item.status === "in-progress"
+                        ? "bg-brand-red"
+                        : "bg-brand-blue")
                     }
-                  `}
-                >
-                  {item.status === "in-progress" ? (
-                    <RefreshCw size={14} strokeWidth={1.5} className="text-sage" />
-                  ) : (
-                    <CheckCircle size={14} strokeWidth={1.5} className="text-greige-dark" />
-                  )}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="pt-1 pb-2">
-                <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h3 className="font-serif text-[1.1rem] font-semibold text-navy">
+                    aria-hidden="true"
+                  />
+                  <StatusBadge status={item.status} />
+                  <h3 className="font-rundale text-2xl font-bold leading-tight text-black md:text-3xl">
                     {item.title}
                   </h3>
-                  <StatusBadge status={item.status} />
                 </div>
-                <p className="font-sans font-light text-[0.9rem] text-navy/60 leading-[1.75]">
-                  {item.description}
-                </p>
-              </div>
-            </motion.li>
-          ))}
-        </motion.ol>
+
+                <div className="flex-1 border-t border-gray-100 pt-5 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">
+                  <p className="max-w-3xl font-montserrat text-base leading-relaxed text-gray-700 md:text-lg">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -9,71 +9,86 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-navy-deep section-padding text-center"
+      className="bg-brand-blue overflow-hidden"
       aria-labelledby="cta-heading"
     >
-      {/* Background glows */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-gradient-radial from-sage/6 via-transparent to-transparent" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-radial from-gold/4 via-transparent to-transparent" />
+      {/* ── Top accent line (brand colors) ── */}
+      <div className="flex h-[5px]">
+        <div className="flex-1 bg-brand-red" />
+        <div className="w-32 bg-brand-gold" />
       </div>
 
-      <div className="relative max-w-[700px] mx-auto">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-20 lg:py-28">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_ONCE}
-          className="flex flex-col items-center"
         >
+          {/* Small eyebrow */}
           <motion.p
             variants={fadeUp}
-            className="text-sage-light font-sans font-semibold text-[0.7rem] tracking-[0.18em] uppercase mb-6"
+            className="text-white/45 font-montserrat text-[0.68rem] tracking-[0.22em] uppercase mb-8"
           >
             Join the Mission
           </motion.p>
 
-          {/* Decorative divider */}
+          {/* ── ENORMOUS typography — the obama.org "DONATE TODAY" signature element ── */}
+          <motion.div variants={fadeUp}>
+            <h2
+              id="cta-heading"
+              className="font-rundale font-bold text-white uppercase leading-[0.88]"
+              style={{ fontSize: "clamp(4.5rem, 14vw, 11rem)" }}
+            >
+              SUPPORT
+            </h2>
+            <h2
+              aria-hidden="true"
+              className="font-rundale font-bold text-brand-gold uppercase leading-[0.88]"
+              style={{ fontSize: "clamp(4.5rem, 14vw, 11rem)" }}
+            >
+              TODAY
+            </h2>
+          </motion.div>
+
+          {/* ── Subtitle + CTA row (below the massive text) ── */}
           <motion.div
             variants={fadeUp}
-            className="w-14 h-px bg-gold mb-8"
-            aria-hidden="true"
-          />
-
-          <motion.h2
-            variants={fadeUp}
-            id="cta-heading"
-            className="heading-serif text-display-xl text-white mb-5"
+            transition={{ delay: 0.1 }}
+            className="mt-12 flex flex-col sm:flex-row sm:items-center gap-6 max-w-[720px]"
           >
-            Be Part of Something
-            <br />
-            <em className="italic text-sage-light">That Truly Matters</em>
-          </motion.h2>
+            <p className="font-montserrat font-light text-white/65 text-[1rem] leading-[1.85] flex-1">
+              Your support helps us create connection, opportunity, and lasting
+              impact for veterans across the U.S. Virgin Islands.
+            </p>
 
-          <motion.p
-            variants={fadeUp}
-            className="font-sans font-light text-white/60 text-[1.05rem] leading-[1.8] mb-10"
-          >
-            Your support helps us create connection, opportunity, and lasting
-            impact for veterans across the U.S. Virgin Islands.
-          </motion.p>
-
-          <motion.div variants={fadeUp}>
-            <Link
-              href="#donate"
-              className="inline-flex items-center gap-3
-                         bg-gold text-navy-deep
-                         font-sans font-semibold text-base tracking-wide
-                         px-9 py-4.5 rounded-xl
-                         hover:bg-gold-light transition-all duration-250
-                         shadow-gold hover:shadow-gold-hover hover:-translate-y-0.5"
-            >
-              Support the Mission
-              <ArrowRight size={18} strokeWidth={1.75} />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+              <Link
+                href="#donate"
+                className="inline-flex items-center justify-center gap-2
+                           bg-white text-brand-blue
+                           font-rundale font-medium text-sm tracking-wide
+                           px-7 py-3.5 rounded-xl
+                           hover:bg-brand-gold hover:text-gray-900
+                           transition-all duration-200
+                           shadow-[0_4px_24px_rgba(0,0,0,0.2)]
+                           hover:-translate-y-0.5"
+              >
+                Donate Now
+                <ArrowRight size={15} strokeWidth={2} />
+              </Link>
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center gap-2
+                           bg-transparent text-white border border-white/30
+                           font-rundale font-medium text-sm tracking-wide
+                           px-7 py-3.5 rounded-xl
+                           hover:border-white/70 hover:bg-white/[0.08]
+                           transition-all duration-200"
+              >
+                Our Programs
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
       </div>

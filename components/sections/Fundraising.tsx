@@ -35,20 +35,15 @@ function ProgressBar() {
       role="group"
       aria-labelledby="progress-label"
     >
-      <div
-        id="progress-label"
-        className="flex items-center justify-between mb-3"
-      >
-        <span className="font-sans text-sm text-white/50">
-          Campaign Progress
-        </span>
-        <span className="font-sans font-semibold text-sm text-gold">
+      <div id="progress-label" className="flex items-center justify-between mb-3">
+        <span className="font-montserrat text-sm text-white/50">Campaign Progress</span>
+        <span className="font-montserrat font-semibold text-sm text-brand-gold">
           ${RAISED.toLocaleString()} / ${GOAL.toLocaleString()} Goal
         </span>
       </div>
 
       <div
-        className="h-1.5 rounded-full bg-white/10 overflow-hidden"
+        className="h-2 rounded-full bg-white/10 overflow-hidden"
         role="progressbar"
         aria-valuenow={RAISED}
         aria-valuemin={0}
@@ -60,7 +55,7 @@ function ProgressBar() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_ONCE}
-          className="h-full rounded-full bg-gradient-to-r from-sage to-gold"
+          className="h-full rounded-full bg-gradient-brand-r"
         />
       </div>
     </motion.div>
@@ -69,12 +64,7 @@ function ProgressBar() {
 
 // ─── Trust Marker Icons ───────────────────────────────────────────────────────
 
-const TRUST_ICONS = {
-  ShieldCheck,
-  TrendingUp,
-  MapPin,
-} as const;
-
+const TRUST_ICONS = { ShieldCheck, TrendingUp, MapPin } as const;
 type TrustIconName = keyof typeof TRUST_ICONS;
 
 // ─── Impact Card ─────────────────────────────────────────────────────────────
@@ -107,8 +97,8 @@ function ImpactCard({
         border transition-all duration-300 ease-spring
         ${
           selected
-            ? "border-gold bg-gold/10 shadow-gold/20 shadow-lg -translate-y-1"
-            : "border-white/[0.09] bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-lg"
+            ? "border-brand-gold bg-brand-gold/10 shadow-gold -translate-y-1"
+            : "border-white/[0.09] bg-white/[0.04] hover:border-brand-gold/40 hover:bg-white/[0.06] hover:-translate-y-1 hover:shadow-lg"
         }
       `}
       role="button"
@@ -121,38 +111,31 @@ function ImpactCard({
         }
       }}
     >
-      {/* Selected indicator */}
       {selected && (
-        <div
-          className="absolute top-4 right-4 w-2 h-2 rounded-full bg-gold"
-          aria-hidden="true"
-        />
+        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-brand-gold" aria-hidden="true" />
       )}
 
-      <div className="font-serif font-light text-[2.25rem] leading-none text-gold">
+      <div className="font-rundale font-bold text-[2.5rem] leading-none text-brand-gold">
         ${amount}
       </div>
 
-      <div className="font-sans font-semibold text-[0.75rem] tracking-[0.1em] uppercase text-white">
+      <div className="font-rundale font-medium text-[0.78rem] tracking-[0.1em] uppercase text-white">
         {title}
       </div>
 
-      <p className="font-sans font-light text-[0.875rem] text-white/50 leading-[1.7] flex-1">
+      <p className="font-montserrat font-light text-[0.875rem] text-white/50 leading-[1.75] flex-1">
         {description}
       </p>
 
       <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onDonate();
-        }}
+        onClick={(e) => { e.stopPropagation(); onDonate(); }}
         className={`
-          w-full text-center font-sans font-medium text-[0.8rem] tracking-wide
+          w-full text-center font-rundale font-medium text-[0.8rem] tracking-wide
           py-2.5 rounded-lg border transition-all duration-200
           ${
             selected
-              ? "bg-gold border-gold text-navy-deep"
-              : "bg-transparent border-gold/50 text-gold hover:bg-gold hover:border-gold hover:text-navy-deep"
+              ? "bg-brand-red border-brand-red text-white"
+              : "bg-transparent border-brand-red/50 text-brand-red hover:bg-brand-red hover:border-brand-red hover:text-white"
           }
         `}
         aria-label={`${ctaLabel} — $${amount} donation`}
@@ -190,57 +173,52 @@ function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) 
     >
       <div className="flex items-center gap-2">
         <Pen size={14} strokeWidth={1.25} className="text-white/40" />
-        <span className="font-sans font-semibold text-[0.75rem] tracking-[0.1em] uppercase text-white">
+        <span className="font-rundale font-medium text-[0.78rem] tracking-[0.1em] uppercase text-white">
           Custom Impact
         </span>
       </div>
 
-      <p className="font-sans font-light text-[0.875rem] text-white/50 leading-[1.7]">
+      <p className="font-montserrat font-light text-[0.875rem] text-white/50 leading-[1.75]">
         Enter any amount and support the mission in your own way.
       </p>
 
       <div className="flex items-end gap-2">
-        <span className="font-serif text-[1.75rem] text-white/30 leading-none pb-1">
-          $
-        </span>
+        <span className="font-rundale font-bold text-[1.75rem] text-white/30 leading-none pb-1">$</span>
         <input
           type="number"
           inputMode="decimal"
           min="1"
           step="1"
           value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-            if (error) setError("");
-          }}
+          onChange={(e) => { setValue(e.target.value); if (error) setError(""); }}
           placeholder="0.00"
           aria-label="Custom donation amount in dollars"
           aria-describedby={error ? "custom-error" : undefined}
           className="
             flex-1 bg-transparent border-0 border-b border-white/20
-            text-white font-serif text-[1.75rem] font-light
+            text-white font-rundale font-bold text-[1.75rem]
             placeholder:text-white/20 outline-none pb-1
-            focus:border-gold transition-colors duration-200
+            focus:border-brand-gold transition-colors duration-200
             [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none
           "
         />
       </div>
 
       {error && (
-        <p id="custom-error" role="alert" className="text-red-400 text-xs font-sans">
+        <p id="custom-error" role="alert" className="text-red-400 text-xs font-montserrat">
           {error}
         </p>
       )}
 
       <button
         onClick={handleSubmit}
-        className="w-full text-center font-sans font-medium text-[0.8rem] tracking-wide
-                   py-2.5 rounded-lg border border-gold/50 text-gold
-                   hover:bg-gold hover:border-gold hover:text-navy-deep
+        className="w-full text-center font-rundale font-medium text-[0.8rem] tracking-wide
+                   py-2.5 rounded-lg border border-brand-red/50 text-brand-red
+                   hover:bg-brand-red hover:border-brand-red hover:text-white
                    transition-all duration-200 flex items-center justify-center gap-2"
       >
         Give Your Way
-        <ArrowRight size={14} strokeWidth={1.75} />
+        <ArrowRight size={14} strokeWidth={2} />
       </button>
     </motion.article>
   );
@@ -270,16 +248,14 @@ function TrustBar() {
             className="flex flex-col items-center text-center gap-3"
           >
             <div
-              className="w-11 h-11 rounded-full bg-sage/10 border border-sage/20
+              className="w-11 h-11 rounded-full bg-brand-gold/10 border border-brand-gold/25
                          flex items-center justify-center"
               aria-hidden="true"
             >
-              <Icon size={18} strokeWidth={1.25} className="text-sage-light" />
+              <Icon size={18} strokeWidth={1.25} className="text-brand-gold" />
             </div>
-            <h4 className="font-sans font-semibold text-[0.85rem] text-white">
-              {title}
-            </h4>
-            <p className="font-sans font-light text-[0.8rem] text-white/50 leading-[1.65]">
+            <h4 className="font-rundale font-medium text-[0.9rem] text-white">{title}</h4>
+            <p className="font-montserrat font-light text-[0.8rem] text-white/50 leading-[1.65]">
               {description}
             </p>
           </motion.div>
@@ -293,12 +269,10 @@ function TrustBar() {
 
 function useToast() {
   const [message, setMessage] = useState<string | null>(null);
-
   const show = useCallback((msg: string) => {
     setMessage(msg);
     setTimeout(() => setMessage(null), 4500);
   }, []);
-
   return { message, show };
 }
 
@@ -329,7 +303,7 @@ export default function Fundraising() {
   return (
     <section
       id="donate"
-      className="section-padding bg-navy-deep"
+      className="section-padding bg-brand-green"
       aria-labelledby="fundraising-heading"
     >
       <div className="max-w-[1280px] mx-auto">
@@ -339,7 +313,7 @@ export default function Fundraising() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_ONCE}
-          className="text-sage-light font-sans font-semibold text-[0.7rem] tracking-[0.18em] uppercase mb-4"
+          className="text-brand-gold font-montserrat font-semibold text-[0.7rem] tracking-[0.2em] uppercase mb-4"
         >
           Fund the Mission
         </motion.p>
@@ -351,11 +325,11 @@ export default function Fundraising() {
           viewport={VIEWPORT_ONCE}
           transition={{ delay: 0.08 }}
           id="fundraising-heading"
-          className="heading-serif text-display-xl text-white mb-4"
+          className="font-rundale font-bold text-display-xl text-white mb-4 leading-tight"
         >
           Help a Veteran Find Their Way
           <br />
-          <em className="italic text-sage-light">Back to Community</em>
+          <span className="text-brand-gold">Back to Community</span>
         </motion.h2>
 
         <motion.p
@@ -364,15 +338,14 @@ export default function Fundraising() {
           whileInView="visible"
           viewport={VIEWPORT_ONCE}
           transition={{ delay: 0.14 }}
-          className="font-sans font-light text-white/60 text-[1.05rem] leading-[1.8] max-w-[560px] mb-10"
+          className="font-montserrat font-light text-white/60 text-[1.05rem] leading-[1.8] max-w-[560px] mb-10"
         >
           We are raising{" "}
-          <strong className="text-gold font-semibold">$25,000</strong> to launch
+          <strong className="text-brand-gold font-semibold">$25,000</strong> to launch
           our first programs, connect isolated veterans, and create safe spaces
           across the U.S. Virgin Islands.
         </motion.p>
 
-        {/* Progress bar */}
         <ProgressBar />
 
         {/* Cards grid */}
@@ -397,11 +370,10 @@ export default function Fundraising() {
           <CustomAmountCard onDonate={handleCustomDonate} />
         </motion.div>
 
-        {/* Trust bar */}
         <TrustBar />
       </div>
 
-      {/* Toast notification */}
+      {/* Toast */}
       {toastMsg && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -410,8 +382,8 @@ export default function Fundraising() {
           role="status"
           aria-live="polite"
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[999]
-                     bg-navy-deep border border-gold/40 text-white
-                     font-sans text-sm px-6 py-4 rounded-xl
+                     bg-brand-green-dark border border-brand-gold/40 text-white
+                     font-montserrat text-sm px-6 py-4 rounded-xl
                      shadow-[0_20px_60px_rgba(0,0,0,0.5)]
                      max-w-[90vw] text-center"
         >
