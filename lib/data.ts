@@ -66,28 +66,32 @@ export const TRUST_MARKERS: TrustMarker[] = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Founder & Director",
-    role: "Leadership",
-    why: "I served so others could live freely — now I serve so veterans can live fully.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    imageAlt: "Founder and Director of Islands of Valor",
+    name: "Roshawn Murraine",
+    role: "Founder",
+    why: "Building a stronger community for veterans starts with showing up, listening, and creating real support that lasts.",
+    imageSrc: "/Founder.jpeg",
+    imageAlt: "Roshawn Murraine, Founder of Islands of Valor",
   },
   {
-    name: "Community Outreach Lead",
-    role: "Programs",
-    why: "Every veteran we reach is a reminder of why this work matters more than anything.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-    imageAlt: "Community Outreach Lead",
+    name: "Kai Callwood",
+    role: "President",
+    why: "This mission is about making sure veterans across the islands feel seen, supported, and connected to a community that cares.",
+    imageSrc: "/President.jpeg",
+    imageAlt: "Kai Callwood, President of Islands of Valor",
   },
   {
-    name: "Programs Coordinator",
-    role: "Operations",
-    why: "Building spaces where veterans can heal isn't just a mission — it's a calling.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-    imageAlt: "Programs Coordinator",
+    name: "Hillis Benjamin",
+    role: "Secretary",
+    why: "Steady leadership and thoughtful service help turn vision into meaningful action for veterans and their families.",
+    imageSrc: "/Secretary.jpeg",
+    imageAlt: "Hillis Benjamin, Secretary of Islands of Valor",
+  },
+  {
+    name: "Alenia Buncome-Murraine",
+    role: "Director",
+    why: "Lasting impact comes from people willing to build support systems with care, consistency, and purpose.",
+    imageSrc: "/Director.jpeg",
+    imageAlt: "Alenia Buncome-Murraine, Director of Islands of Valor",
   },
 ];
 
