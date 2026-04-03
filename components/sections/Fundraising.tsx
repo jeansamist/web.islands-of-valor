@@ -1,23 +1,23 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  TrendingUp,
-  MapPin,
-  ArrowRight,
-  Pen,
-  X,
-} from "lucide-react";
-import {
-  fadeUp,
-  staggerContainer,
   cardSpring,
+  fadeUp,
   progressBar,
+  staggerContainer,
   VIEWPORT_ONCE,
 } from "@/lib/animations";
 import { IMPACT_CARDS, TRUST_MARKERS } from "@/lib/data";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  MapPin,
+  Pen,
+  ShieldCheck,
+  TrendingUp,
+  X,
+} from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 // ─── Progress Bar ─────────────────────────────────────────────────────────────
 
@@ -36,8 +36,13 @@ function ProgressBar() {
       role="group"
       aria-labelledby="progress-label"
     >
-      <div id="progress-label" className="flex items-center justify-between mb-3">
-        <span className="font-montserrat text-sm text-white/50">Campaign Progress</span>
+      <div
+        id="progress-label"
+        className="flex items-center justify-between mb-3"
+      >
+        <span className="font-montserrat text-sm text-white/50">
+          Campaign Progress
+        </span>
         <span className="font-montserrat font-semibold text-sm text-brand-gold">
           ${RAISED.toLocaleString()} / ${GOAL.toLocaleString()} Goal
         </span>
@@ -113,7 +118,10 @@ function ImpactCard({
       }}
     >
       {selected && (
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-brand-gold" aria-hidden="true" />
+        <div
+          className="absolute top-4 right-4 w-2 h-2 rounded-full bg-brand-gold"
+          aria-hidden="true"
+        />
       )}
 
       <div className="font-rundale font-bold text-[2.5rem] leading-none text-brand-gold">
@@ -129,7 +137,10 @@ function ImpactCard({
       </p>
 
       <button
-        onClick={(e) => { e.stopPropagation(); onDonate(); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onDonate();
+        }}
         className={`
           w-full text-center font-rundale font-medium text-[0.8rem] tracking-wide
           py-2.5 rounded-lg border transition-all duration-200
@@ -149,7 +160,11 @@ function ImpactCard({
 
 // ─── Custom Amount Card ───────────────────────────────────────────────────────
 
-function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) {
+function CustomAmountCard({
+  onDonate,
+}: {
+  onDonate: (amount: number) => void;
+}) {
   const [value, setValue] = useState<string>("");
   const [error, setError] = useState<string>("");
 
@@ -184,19 +199,24 @@ function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) 
       </p>
 
       <div className="flex items-end gap-2">
-        <span className="font-rundale font-bold text-[1.75rem] text-white/30 leading-none pb-1">$</span>
+        <span className="font-rundale font-bold text-[1.75rem] text-white/30 leading-none pb-1">
+          $
+        </span>
         <input
           type="number"
           inputMode="decimal"
           min="1"
           step="1"
           value={value}
-          onChange={(e) => { setValue(e.target.value); if (error) setError(""); }}
+          onChange={(e) => {
+            setValue(e.target.value);
+            if (error) setError("");
+          }}
           placeholder="0.00"
           aria-label="Custom donation amount in dollars"
           aria-describedby={error ? "custom-error" : undefined}
           className="
-            flex-1 bg-transparent border-0 border-b border-white/20
+            w-full bg-transparent border-0 border-b border-white/20
             text-white font-rundale font-bold text-[1.75rem]
             placeholder:text-white/20 outline-none pb-1
             focus:border-brand-gold transition-colors duration-200
@@ -206,7 +226,11 @@ function CustomAmountCard({ onDonate }: { onDonate: (amount: number) => void }) 
       </div>
 
       {error && (
-        <p id="custom-error" role="alert" className="text-red-400 text-xs font-montserrat">
+        <p
+          id="custom-error"
+          role="alert"
+          className="text-red-400 text-xs font-montserrat"
+        >
           {error}
         </p>
       )}
@@ -255,7 +279,9 @@ function TrustBar() {
             >
               <Icon size={18} strokeWidth={1.25} className="text-brand-gold" />
             </div>
-            <h4 className="font-rundale font-medium text-[0.9rem] text-white">{title}</h4>
+            <h4 className="font-rundale font-medium text-[0.9rem] text-white">
+              {title}
+            </h4>
             <p className="font-montserrat font-light text-[0.8rem] text-white/50 leading-[1.65]">
               {description}
             </p>
@@ -536,9 +562,9 @@ export default function Fundraising() {
           className="font-montserrat font-light text-white/60 text-[1.05rem] leading-[1.8] max-w-[560px] mb-10"
         >
           We are raising{" "}
-          <strong className="text-brand-gold font-semibold">$25,000</strong> to launch
-          our first programs, connect isolated veterans, and create safe spaces
-          across the U.S. Virgin Islands.
+          <strong className="text-brand-gold font-semibold">$25,000</strong> to
+          launch our first programs, connect isolated veterans, and create safe
+          spaces across the U.S. Virgin Islands.
         </motion.p>
 
         <ProgressBar />
