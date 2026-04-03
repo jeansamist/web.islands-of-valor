@@ -99,7 +99,7 @@ function ProgramsHero() {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-brand-blue-deep/75 via-transparent to-transparent"
+        className="absolute inset-0 bg-gradient-to-t from-brand-blue-deep/75 via-brand-blue-deep/25 to-brand-blue-deep/25"
         aria-hidden="true"
       />
 
