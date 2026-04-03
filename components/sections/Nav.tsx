@@ -62,7 +62,7 @@ export default function Nav() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1224) {
         setMobileMenuOpen(false);
       }
     };
@@ -86,7 +86,7 @@ export default function Nav() {
         role="banner"
       >
         <div className="flex h-full w-full max-w-[1780px] items-center justify-between gap-4 md:text-lg lg:gap-6">
-          <div className="flex items-center gap-4 lg:gap-12">
+          <div className="flex items-center gap-4 lg:gap-16">
             <Link
               href="/"
               aria-label="Home"

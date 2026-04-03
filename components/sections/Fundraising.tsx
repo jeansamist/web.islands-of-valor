@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -8,6 +8,7 @@ import {
   MapPin,
   ArrowRight,
   Pen,
+  X,
 } from "lucide-react";
 import {
   fadeUp,
@@ -265,40 +266,234 @@ function TrustBar() {
   );
 }
 
-// ─── Toast ────────────────────────────────────────────────────────────────────
+// ─── Donation Modal ───────────────────────────────────────────────────────────
 
-function useToast() {
-  const [message, setMessage] = useState<string | null>(null);
-  const show = useCallback((msg: string) => {
-    setMessage(msg);
-    setTimeout(() => setMessage(null), 4500);
-  }, []);
-  return { message, show };
+interface ModalProps {
+  amount: number;
+  packageLabel: string;
+  onClose: () => void;
+}
+
+function DonationModal({ amount, packageLabel, onClose }: ModalProps) {
+  const [form, setForm] = useState({ fullName: "", email: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [onClose]);
+
+  const validate = () => {
+    const next: Record<string, string> = {};
+    if (!form.fullName.trim()) next.fullName = "Full name is required.";
+    if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      next.email = "A valid email address is required.";
+    return next;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const next = validate();
+    if (Object.keys(next).length > 0) {
+      setErrors(next);
+      return;
+    }
+    setErrors({});
+    setSubmitted(true);
+  };
+
+  const field = (key: keyof typeof form, value: string) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+    if (errors[key]) setErrors((prev) => ({ ...prev, [key]: "" }));
+  };
+
+  return (
+    <>
+      <div
+        className="fixed inset-0 z-[998] bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div
+        className="fixed inset-0 z-[999] flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="relative w-full max-w-md border border-brand-gold/20 bg-brand-green p-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close donation form"
+            className="absolute right-4 top-4 text-white/40 transition-colors duration-200 hover:text-white"
+          >
+            <X size={20} />
+          </button>
+
+          {submitted ? (
+            <div className="flex flex-col gap-4 py-4">
+              <div className="h-[4px] w-10 bg-brand-gold" aria-hidden="true" />
+              <h3
+                id="modal-title"
+                className="font-rundale text-2xl font-bold text-white"
+              >
+                Thank you, {form.fullName.split(" ")[0]}.
+              </h3>
+              <p className="font-montserrat text-sm leading-relaxed text-white/60">
+                Your ${amount} donation intention has been received. We&rsquo;ll
+                follow up at{" "}
+                <span className="text-brand-gold">{form.email}</span> with next
+                steps.
+              </p>
+              <button
+                type="button"
+                onClick={onClose}
+                className="mt-2 inline-flex items-center gap-2 bg-brand-red px-6 py-3 font-rundale font-medium text-sm text-white transition-colors duration-200 hover:opacity-90"
+              >
+                Done
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="mb-6 flex items-stretch gap-4">
+                <div
+                  className="w-[3px] flex-shrink-0 bg-brand-gold"
+                  aria-hidden="true"
+                />
+                <div>
+                  <p className="mb-0.5 font-montserrat text-[0.68rem] uppercase tracking-[0.16em] text-white/40">
+                    Selected Package
+                  </p>
+                  <p className="font-rundale text-2xl font-bold leading-none text-brand-gold">
+                    ${amount}
+                  </p>
+                  <p className="mt-1 font-rundale text-sm font-medium text-white/80">
+                    {packageLabel}
+                  </p>
+                </div>
+              </div>
+
+              <h3
+                id="modal-title"
+                className="mb-6 font-rundale text-xl font-bold text-white"
+              >
+                Complete Your Donation
+              </h3>
+
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                aria-label="Donation form"
+                className="flex flex-col gap-5"
+              >
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="modal-fullname"
+                    className="font-montserrat text-xs font-semibold uppercase tracking-[0.14em] text-white/50"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    id="modal-fullname"
+                    type="text"
+                    value={form.fullName}
+                    onChange={(e) => field("fullName", e.target.value)}
+                    autoComplete="name"
+                    aria-describedby={
+                      errors.fullName ? "modal-fullname-error" : undefined
+                    }
+                    placeholder="Roshawn Murraine"
+                    className="border border-white/[0.12] bg-white/[0.06] px-4 py-3 font-montserrat text-sm text-white placeholder:text-white/25 outline-none transition-colors duration-200 focus:border-brand-gold/60"
+                  />
+                  {errors.fullName && (
+                    <p
+                      id="modal-fullname-error"
+                      role="alert"
+                      className="font-montserrat text-xs text-brand-red"
+                    >
+                      {errors.fullName}
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="modal-email"
+                    className="font-montserrat text-xs font-semibold uppercase tracking-[0.14em] text-white/50"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    id="modal-email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => field("email", e.target.value)}
+                    autoComplete="email"
+                    aria-describedby={
+                      errors.email ? "modal-email-error" : undefined
+                    }
+                    placeholder="you@example.com"
+                    className="border border-white/[0.12] bg-white/[0.06] px-4 py-3 font-montserrat text-sm text-white placeholder:text-white/25 outline-none transition-colors duration-200 focus:border-brand-gold/60"
+                  />
+                  {errors.email && (
+                    <p
+                      id="modal-email-error"
+                      role="alert"
+                      className="font-montserrat text-xs text-brand-red"
+                    >
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="mt-2 inline-flex items-center justify-center gap-2 bg-brand-red px-6 py-3.5 font-rundale font-medium text-sm tracking-wide text-white transition-opacity duration-200 hover:opacity-90"
+                >
+                  Confirm Donation — ${amount}
+                  <ArrowRight size={14} strokeWidth={2} />
+                </button>
+              </form>
+            </>
+          )}
+        </motion.div>
+      </div>
+    </>
+  );
 }
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
 
+interface ModalState {
+  amount: number;
+  packageLabel: string;
+}
+
 export default function Fundraising() {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
-  const { message: toastMsg, show: showToast } = useToast();
+  const [modal, setModal] = useState<ModalState | null>(null);
 
-  const handleDonate = useCallback(
-    (amount: number, label: string) => {
-      showToast(
-        `Thank you for choosing to ${label}. You'll be redirected to secure checkout.`
-      );
-    },
-    [showToast]
-  );
+  const handleDonate = useCallback((amount: number, label: string) => {
+    setModal({ amount, packageLabel: label });
+  }, []);
 
-  const handleCustomDonate = useCallback(
-    (amount: number) => {
-      showToast(
-        `Thank you for your $${amount.toFixed(2)} gift. You'll be redirected to secure checkout.`
-      );
-    },
-    [showToast]
-  );
+  const handleCustomDonate = useCallback((amount: number) => {
+    setModal({ amount, packageLabel: "Custom Impact" });
+  }, []);
 
   return (
     <section
@@ -373,22 +568,12 @@ export default function Fundraising() {
         <TrustBar />
       </div>
 
-      {/* Toast */}
-      {toastMsg && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          role="status"
-          aria-live="polite"
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[999]
-                     bg-brand-green-dark border border-brand-gold/40 text-white
-                     font-montserrat text-sm px-6 py-4 rounded-xl
-                     shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-                     max-w-[90vw] text-center"
-        >
-          {toastMsg}
-        </motion.div>
+      {modal && (
+        <DonationModal
+          amount={modal.amount}
+          packageLabel={modal.packageLabel}
+          onClose={() => setModal(null)}
+        />
       )}
     </section>
   );
