@@ -22,13 +22,13 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Our Programs", href: "/programs" },
   { label: "Our Team", href: "/#team" },
   { label: "Updates", href: "/#momentum" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
   {
     label: "Get Involved",
     dropdown: [
       { label: "Donate", href: "/#donate" },
-      { label: "Partner With Us", href: "/#contact" },
-      { label: "Volunteer", href: "/#contact" },
+      { label: "Partner With Us", href: "/contact" },
+      { label: "Volunteer", href: "/contact" },
     ],
   },
 ];
@@ -90,25 +90,25 @@ export default function Nav() {
             <Link
               href="/"
               aria-label="Home"
-              className="h-12 w-12 md:h-16 md:w-16"
+              className="w-44 md:w-44 aspect-[376.08/60]"
             >
               {scrolled ? (
                 <Image
-                  src={"/logo-colored-icon.svg"}
+                  src={"/logo-colored.svg"}
                   alt="Logo"
-                  width={100}
+                  width={376.08}
                   objectFit="contain"
-                  className="h-full! w-full!"
-                  height={100}
+                  className="w-full!"
+                  height={60}
                 />
               ) : (
                 <Image
-                  src={"/logo-white-icon.svg"}
+                  src={"/logo-white.svg"}
                   alt="Logo"
-                  width={100}
+                  width={376.08}
                   objectFit="contain"
-                  className="h-full! w-full!"
-                  height={100}
+                  className="w-full!"
+                  height={60}
                 />
               )}
             </Link>

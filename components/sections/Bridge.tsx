@@ -30,7 +30,7 @@ export default function Bridge() {
         <motion.div style={{ y: imgY }} className="absolute inset-0">
           <div className="absolute inset-[-15%]">
             <Image
-              src="/medium-shot-people-discussing.jpg"
+              src="/donations.png"
               alt="Veterans gathering in the U.S. Virgin Islands"
               fill
               className="object-cover object-center"

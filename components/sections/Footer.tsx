@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/animations";
 import { FOOTER_COLUMNS } from "@/lib/data";
+import { motion } from "framer-motion";
+import { ArrowRight, Facebook, Instagram, Linkedin } from "lucide-react";
+import Link from "next/link";
+import { useCallback, useState } from "react";
 
 // ─── Newsletter Form ──────────────────────────────────────────────────────────
 
@@ -25,15 +25,15 @@ function NewsletterForm() {
       setSubmitted(true);
       setEmail("");
     },
-    [email]
+    [email],
   );
 
   return (
     <div>
-      <h4 className="font-rundale font-medium text-[0.7rem] tracking-[0.16em] uppercase text-white/50 mb-4">
+      <h4 className="font-rundale font-medium text-[0.7rem] tracking-[0.16em] uppercase text-white mb-4">
         Join the $25k Launch Journey
       </h4>
-      <p className="font-montserrat font-light text-[0.82rem] text-white/45 leading-[1.7] mb-4">
+      <p className="font-montserrat font-light text-[0.82rem] text-white/75 leading-[1.7] mb-4">
         Get updates on our progress, upcoming events, and veteran stories.
       </p>
 
@@ -50,12 +50,17 @@ function NewsletterForm() {
           className="flex flex-col gap-2"
         >
           <div className="flex">
-            <label htmlFor="footer-email" className="sr-only">Email address</label>
+            <label htmlFor="footer-email" className="sr-only">
+              Email address
+            </label>
             <input
               id="footer-email"
               type="email"
               value={email}
-              onChange={(e) => { setEmail(e.target.value); if (error) setError(""); }}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (error) setError("");
+              }}
               placeholder="Your email address"
               autoComplete="email"
               aria-describedby={error ? "footer-email-error" : undefined}
@@ -80,7 +85,11 @@ function NewsletterForm() {
             </button>
           </div>
           {error && (
-            <p id="footer-email-error" role="alert" className="text-red-400 text-xs font-montserrat">
+            <p
+              id="footer-email-error"
+              role="alert"
+              className="text-red-400 text-xs font-montserrat"
+            >
               {error}
             </p>
           )}
@@ -98,9 +107,14 @@ function NewsletterForm() {
 export default function Footer() {
   return (
     <footer
-      className="bg-brand-green border-t border-white/[0.06]"
+      className="bg-brand-green border-t border-white/[0.06] relative overflow-hidden"
       role="contentinfo"
     >
+      <img
+        src="/logo-white-icon.svg"
+        alt="Islands of Valor"
+        className="hidden lg:block h-96 absolute w-auto opacity-5 -translate-y-1/2 translate-x-1/4 right-0 top-1/2 pointer-events-none select-none"
+      />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         {/* Main grid */}
         <motion.div
@@ -122,13 +136,12 @@ export default function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/SVG/logo horizontal.svg"
+                src="/logo-white-icon.svg"
                 alt="Islands of Valor"
                 className="h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
               />
             </Link>
-
-            <p className="font-montserrat font-light text-[0.84rem] text-white/45 leading-[1.8] max-w-[220px]">
+            <p className="font-montserrat font-light text-[0.84rem] text-white leading-[1.8] max-w-[220px]">
               Supporting veterans and their families across the U.S. Virgin
               Islands since 2024.
             </p>
@@ -159,8 +172,12 @@ export default function Footer() {
 
           {/* Nav columns */}
           {FOOTER_COLUMNS.map((col) => (
-            <motion.div key={col.heading} variants={fadeUp} className="flex flex-col gap-4">
-              <h4 className="font-rundale font-medium text-[0.7rem] tracking-[0.16em] uppercase text-white/50">
+            <motion.div
+              key={col.heading}
+              variants={fadeUp}
+              className="flex flex-col gap-4"
+            >
+              <h4 className="font-rundale font-bold text-[0.7rem] tracking-[0.16em] uppercase text-white">
                 {col.heading}
               </h4>
               <nav aria-label={col.heading}>
@@ -169,8 +186,8 @@ export default function Footer() {
                     key={link.label}
                     href={link.href}
                     className="
-                      block font-montserrat font-light text-[0.875rem] text-white/50
-                      hover:text-white transition-colors duration-150 mb-2.5
+                      block font-montserrat font-light text-[0.875rem] text-white/75
+                      hover:text-white transition-colors hover:underline duration-150 mb-2.5
                     "
                   >
                     {link.label}

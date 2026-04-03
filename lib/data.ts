@@ -140,8 +140,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     heading: "Get Involved",
     links: [
       { label: "Donate", href: "#donate" },
-      { label: "Partner With Us", href: "#contact" },
-      { label: "Volunteer", href: "#contact" },
+      { label: "Partner With Us", href: "/contact" },
+      { label: "Volunteer", href: "/contact" },
     ],
   },
   {
@@ -149,8 +149,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: "News & Updates", href: "#momentum" },
       { label: "Events", href: "#momentum" },
-      { label: "FAQs", href: "#contact" },
-      { label: "Contact", href: "#contact" },
+      { label: "FAQs", href: "/contact" },
+      { label: "Contact", href: "/contact" },
       { label: "501(c)(3) Status", href: "#" },
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Use", href: "#" },

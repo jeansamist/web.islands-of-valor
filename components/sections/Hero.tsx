@@ -75,13 +75,13 @@ export default function Hero() {
         {/* ── Parallax background ── */}
         <div className="absolute inset-0 z-0">
           <motion.div style={{ y: bgY }} className="absolute inset-0">
-            <div className="absolute inset-[-25%]">
+            <div className="absolute inset-0">
               <Image
                 src="/medium-shot-people-discussing.jpg"
                 alt="Veterans community gathering in the U.S. Virgin Islands"
                 fill
                 priority
-                className="object-cover object-top"
+                className="object-cover"
                 sizes="100vw"
               />
             </div>

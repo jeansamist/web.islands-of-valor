@@ -86,7 +86,7 @@ function ProgramsHero() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/medium-shot-people-discussing.jpg"
+          src="/program.jpg"
           alt="Veterans in conversation during a community program"
           fill
           priority
@@ -220,33 +220,39 @@ function ProgramsOverview() {
             role="list"
             aria-label="Program offerings"
           >
-            {PROGRAMS.map(({ Icon, title, description, accent, iconBg, bar }, idx) => (
-              <motion.article
-                key={title}
-                variants={fadeUp}
-                role="listitem"
-                className={
-                  "flex flex-col gap-5 p-8 md:p-10 lg:flex-row lg:items-start lg:gap-10 " +
-                  (idx < PROGRAMS.length - 1 ? "border-b border-gray-100" : "")
-                }
-              >
-                <div className="flex w-full flex-col gap-4 lg:max-w-[340px] lg:flex-shrink-0">
-                  <div className={`h-[4px] w-10 ${bar}`} aria-hidden="true" />
-                  <div className={`flex h-16 w-16 items-center justify-center ${iconBg}`}>
-                    <Icon size={24} strokeWidth={2} className={accent} />
+            {PROGRAMS.map(
+              ({ Icon, title, description, accent, iconBg, bar }, idx) => (
+                <motion.article
+                  key={title}
+                  variants={fadeUp}
+                  role="listitem"
+                  className={
+                    "flex flex-col gap-5 p-8 md:p-10 lg:flex-row lg:items-start lg:gap-10 " +
+                    (idx < PROGRAMS.length - 1
+                      ? "border-b border-gray-100"
+                      : "")
+                  }
+                >
+                  <div className="flex w-full flex-col gap-4 lg:max-w-[340px] lg:flex-shrink-0">
+                    <div className={`h-[4px] w-10 ${bar}`} aria-hidden="true" />
+                    <div
+                      className={`flex h-16 w-16 items-center justify-center ${iconBg}`}
+                    >
+                      <Icon size={24} strokeWidth={2} className={accent} />
+                    </div>
+                    <h3 className="font-rundale text-2xl font-bold leading-tight text-black md:text-3xl">
+                      {title}
+                    </h3>
                   </div>
-                  <h3 className="font-rundale text-2xl font-bold leading-tight text-black md:text-3xl">
-                    {title}
-                  </h3>
-                </div>
 
-                <div className="flex-1 border-t border-gray-100 pt-5 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <p className="max-w-3xl font-montserrat text-base leading-relaxed text-gray-700 md:text-lg">
-                    {description}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
+                  <div className="flex-1 border-t border-gray-100 pt-5 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                    <p className="max-w-3xl font-montserrat text-base leading-relaxed text-gray-700 md:text-lg">
+                      {description}
+                    </p>
+                  </div>
+                </motion.article>
+              ),
+            )}
           </motion.div>
         </div>
       </div>
@@ -262,7 +268,7 @@ function ProgramsBridge() {
     >
       <div className="relative min-h-[340px] overflow-hidden lg:min-h-[560px]">
         <Image
-          src="/medium-shot-people-discussing.jpg"
+          src="/program-2.jpg"
           alt="Veterans gathering through an Islands of Valor program"
           fill
           className="object-cover object-center"
@@ -329,7 +335,7 @@ function ProgramsBridge() {
             className="flex flex-wrap gap-4"
           >
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center justify-center bg-white px-7 py-3.5 font-rundale text-sm font-medium tracking-wide text-brand-blue transition-all duration-200 hover:bg-brand-gold hover:text-gray-900"
             >
               Partner With Us
@@ -400,7 +406,7 @@ function ProgramsCTA() {
 
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-shrink-0">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-brand-blue px-7 py-3.5 font-rundale text-sm font-medium tracking-wide text-white transition-all duration-200 hover:bg-brand-blue-deep"
               >
                 Contact Us
