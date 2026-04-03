@@ -62,7 +62,7 @@ export default function Nav() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1224) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
