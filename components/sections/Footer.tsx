@@ -143,7 +143,7 @@ export default function Footer() {
             </Link>
             <p className="font-montserrat font-light text-[0.84rem] text-white leading-[1.8] max-w-[220px]">
               Supporting veterans and their families across the U.S. Virgin
-              Islands since 2024.
+              Islands since 2025.
             </p>
 
             {/* Social icons */}

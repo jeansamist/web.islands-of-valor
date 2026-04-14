@@ -8,11 +8,7 @@ import { TEAM_MEMBERS } from "@/lib/data";
 
 export default function Team() {
   return (
-    <section
-      id="team"
-      className="bg-white"
-      aria-labelledby="team-heading"
-    >
+    <section id="team" className="bg-white" aria-labelledby="team-heading">
       <div className="mx-auto flex max-w-[1780px] flex-col py-20 pt-6 lg:gap-12 xl:flex-row">
         <div className="flex-1 space-y-6 bg-brand-blue p-6 md:p-12">
           <motion.p
@@ -45,9 +41,9 @@ export default function Team() {
             transition={{ delay: 0.1 }}
             className="border-t border-white pt-6 font-montserrat text-base leading-relaxed text-white md:text-lg"
           >
-            Islands of Valor is built by people who believe veterans deserve
-            more than gratitude. They deserve connection, steady support, and a
-            community that continues to show up for them.
+            Islands of Valor was established by people who believe veterans
+            deserve more than gratitude. They deserve connection, steady
+            support, and a community that continues to show up for them.
           </motion.div>
         </div>
 

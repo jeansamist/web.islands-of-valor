@@ -22,7 +22,7 @@ const PILLARS = [
     Icon: Compass,
     hook: "Service does not end, it evolves.",
     title: "Driving Opportunity",
-    copy: "We help veterans translate skills into meaningful opportunities — from leading excursions to creating high-quality local products for the VI economy.",
+    copy: "We aim to help veterans translate skills into meaningful opportunities — from leading excursions to creating high-quality local products for the VI economy.",
     accent: "text-brand-red",
     iconBg: "bg-brand-red/10",
     iconColor: "text-brand-red",
@@ -60,8 +60,8 @@ export default function Mission() {
         >
           Our mission is to <span className="text-brand-blue">support</span>,{" "}
           <span className="text-brand-red">connect</span>, and{" "}
-          <span className="text-brand-green">empower</span> veterans and their
-          families across the U.S. Virgin Islands.{" "}
+          <span className="text-brand-gold-dark">empower</span> veterans and
+          their families across the U.S. Virgin Islands.{" "}
           <Link
             href="#donate"
             className=" text-2xl md:text-3xl lg:text-4xl xl:text-5xl inline-flex items-center gap-1 underline decoration-brand-blue/30 underline-offset-4
@@ -106,13 +106,16 @@ export default function Mission() {
             viewport={VIEWPORT_ONCE}
             className="pt-6 text-white leading-normal border-t border-white md:text-xl"
           >
-            Islands of Valor exists to ensure that no veteran in the U.S. Virgin
-            Islands feels forgotten. We turn isolation into connection, service
-            into opportunity, and experience into lasting impact within our
-            communities.
+            Islands of Valor was established to ensure that no veteran in the
+            U.S. Virgin Islands feels forgotten. We turn isolation into
+            connection, service into opportunity, and experience into lasting
+            impacts within our communities.
           </motion.div>
         </div>
         <div className="md:max-w-3xl w-full">
+          <div className="inline-block px-2 py-1 border border-brand-blue text-brand-blue text-sm font-montserrat font-semibold uppercase">
+            OUR VISION
+          </div>
           <motion.div
             variants={staggerContainer}
             initial="hidden"

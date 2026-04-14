@@ -68,7 +68,7 @@ export default function Bridge() {
             viewport={VIEWPORT_ONCE}
             className="text-white px-2 py-1 border border-white inline-block font-montserrat text-[0.68rem] tracking-[0.2em] uppercase mb-5"
           >
-            Our Vision
+            Support the vision
           </motion.p>
 
           <motion.blockquote
@@ -112,7 +112,7 @@ export default function Bridge() {
                          border-b border-white/40 pb-0.5
                          hover:border-white transition-colors duration-200"
             >
-              Support the Mission Today
+              Here is how you can help
               <ArrowRight
                 size={15}
                 strokeWidth={2}

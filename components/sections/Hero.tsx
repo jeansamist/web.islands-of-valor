@@ -11,8 +11,8 @@ import { useRef } from "react";
 
 const PARTNERS = [
   "VA Caribbean Healthcare System",
-  "VI Tourism Board",
-  "Local Artisan Collectives",
+  "American Legion Post 90",
+  "Veteran center",
 ];
 
 function PartnerBar() {
@@ -125,8 +125,8 @@ export default function Hero() {
                 variants={heroItem}
                 className="text-white font-montserrat md:text-lg xl:text-2xl leading-loose"
               >
-                We&rsquo;re a nonprofit supporting veterans and their families
-                across the U.S. Virgin Islands &mdash; connecting them to peer
+                We are a nonprofit supporting veterans and their families across
+                the U.S. Virgin Islands &mdash; connecting them to peer
                 communities, meaningful activities, and opportunities to heal
                 and grow.
               </motion.p>
