@@ -1,9 +1,9 @@
 import type {
-  ImpactCard,
-  TeamMember,
-  MomentumItem,
-  TrustMarker,
   FooterColumn,
+  ImpactCard,
+  MomentumItem,
+  TeamMember,
+  TrustMarker,
 } from "@/types";
 
 // ─── Impact Cards ─────────────────────────────────────────────────────────────
@@ -92,6 +92,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     why: "Lasting impact comes from people willing to build support systems with care, consistency, and purpose.",
     imageSrc: "/Director.jpeg",
     imageAlt: "Alenia Buncome-Murraine, Director of Islands of Valor",
+  },
+  {
+    name: "Renee Thomas",
+    role: "Treasurer",
+    why: "Transparent, responsible stewardship of resources is essential to building trust and sustaining our mission for the long haul.",
+    imageSrc: "/Treasure.jpeg",
+    imageAlt: "Renee Thomas, Treasurer of Islands of Valor",
   },
 ];
 
