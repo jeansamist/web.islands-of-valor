@@ -94,7 +94,7 @@ export default function Nav() {
             >
               {scrolled ? (
                 <Image
-                  src={"/logo-colored.svg"}
+                  src={"/logoh@4x 1.png"}
                   alt="Logo"
                   width={376.08}
                   objectFit="contain"
@@ -103,11 +103,11 @@ export default function Nav() {
                 />
               ) : (
                 <Image
-                  src={"/logo-white.svg"}
+                  src={"/logoh@4x 2.png"}
                   alt="Logo"
                   width={376.08}
                   objectFit="contain"
-                  className="w-full!"
+                  className="w-full! invert"
                   height={60}
                 />
               )}
