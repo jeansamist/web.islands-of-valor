@@ -139,7 +139,10 @@ function ImpactCard({
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onDonate();
+          window.location.assign(
+            `https://givebutter.com/islands-of-valor-initiative-gvl8ql?amount=${amount}`,
+          );
+          // onDonate();
         }}
         className={`
           w-full text-center font-rundale font-medium text-[0.8rem] tracking-wide
@@ -175,7 +178,10 @@ function CustomAmountCard({
       return;
     }
     setError("");
-    onDonate(num);
+    window.location.assign(
+      `https://givebutter.com/islands-of-valor-initiative-gvl8ql?amount=${num}`,
+    );
+    // onDonate(num);
   }, [value, onDonate]);
 
   return (
@@ -567,7 +573,7 @@ export default function Fundraising() {
           spaces across the U.S. Virgin Islands.
         </motion.p>
 
-        <ProgressBar />
+        {/* <ProgressBar /> */}
 
         {/* Cards grid */}
         <motion.div
