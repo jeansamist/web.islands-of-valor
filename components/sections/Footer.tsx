@@ -113,7 +113,7 @@ export default function Footer() {
       <img
         src="/Logo noir@4x.png"
         alt="Islands of Valor"
-        className="hidden lg:block h-96 absolute w-auto opacity-5 brightness-0 invert -translate-y-1/2 translate-x-1/4 right-0 top-1/2 pointer-events-none select-none"
+        className="hidden lg:block h-96 absolute w-auto opacity-5 brightness-0 invert -translate-y-1/2 right-0 top-1/2 pointer-events-none select-none"
       />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         {/* Main grid */}

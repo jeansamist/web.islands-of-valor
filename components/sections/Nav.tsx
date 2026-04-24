@@ -193,7 +193,8 @@ export default function Nav() {
             </nav>
           </div>
           <div className="flex flex-1 items-center justify-end gap-3">
-            <button
+            <a
+              href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
               className={cn(
                 "hidden px-5 py-3 font-rundale font-bold lg:inline-flex",
                 scrolled
@@ -202,7 +203,7 @@ export default function Nav() {
               )}
             >
               Support the mission
-            </button>
+            </a>
             <button
               type="button"
               aria-label={
@@ -292,9 +293,12 @@ export default function Nav() {
               ),
             )}
           </div>
-          <button className="mt-4 inline-flex w-full items-center justify-center bg-brand-blue px-5 py-3 font-rundale font-bold text-white">
+          <a
+            href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
+            className="mt-4 inline-flex w-full items-center justify-center bg-brand-blue px-5 py-3 font-rundale font-bold text-white"
+          >
             Support the mission
-          </button>
+          </a>
         </nav>
       </div>
     </>
