@@ -96,7 +96,7 @@ export default function Hero() {
                    bg-gradient-to-t from-brand-blue-deep/70 via-transparent to-transparent"
           aria-hidden="true"
         />
-        <div className="absolute bottom-20 left-0 right-0 z-[2] pb-24">
+        <div className="absolute bottom-20 left-0 right-0 z-[2] pb-20">
           <motion.div
             variants={heroContainer}
             initial="hidden"
