@@ -106,7 +106,7 @@ export default function Bridge() {
             transition={{ delay: 0.24 }}
           >
             <Link
-              href="#donate"
+              href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
               className="group inline-flex items-center gap-2
                          text-white font-rundale font-medium text-sm tracking-wide
                          border-b border-white/40 pb-0.5

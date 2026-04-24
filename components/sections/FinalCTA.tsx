@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/animations";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/animations";
+import Link from "next/link";
 
 export default function FinalCTA() {
   return (
@@ -64,7 +64,7 @@ export default function FinalCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
               <Link
-                href="#donate"
+                href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
                 className="inline-flex items-center justify-center gap-2
                            bg-white text-brand-blue
                            font-rundale font-medium text-sm tracking-wide

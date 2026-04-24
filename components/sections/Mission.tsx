@@ -63,7 +63,7 @@ export default function Mission() {
           <span className="text-brand-gold-dark">empower</span> veterans and
           their families across the U.S. Virgin Islands.{" "}
           <Link
-            href="#donate"
+            href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
             className=" text-2xl md:text-3xl lg:text-4xl xl:text-5xl inline-flex items-center gap-1 underline decoration-brand-blue/30 underline-offset-4
                        hover:decoration-brand-blue transition-all duration-200 text-brand-blue whitespace-nowrap"
           >

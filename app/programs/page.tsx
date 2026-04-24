@@ -148,7 +148,7 @@ function ProgramsHero() {
               />
             </Link>
             <Link
-              href="/#donate"
+              href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
               className="group inline-flex items-center gap-2 font-rundale font-medium tracking-wide text-white/70 transition-colors duration-200 hover:text-white"
             >
               Support This Work
@@ -341,7 +341,7 @@ function ProgramsBridge() {
               Partner With Us
             </Link>
             <Link
-              href="/#donate"
+              href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
               className="inline-flex items-center justify-center border border-white/30 px-7 py-3.5 font-rundale text-sm font-medium tracking-wide text-white transition-all duration-200 hover:border-white hover:bg-white/10"
             >
               Support a Program
@@ -413,7 +413,7 @@ function ProgramsCTA() {
                 <ArrowRight size={15} strokeWidth={2} />
               </Link>
               <Link
-                href="/#donate"
+                href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
                 className="inline-flex items-center justify-center border border-brand-blue/20 px-7 py-3.5 font-rundale text-sm font-medium tracking-wide text-brand-blue transition-all duration-200 hover:border-brand-blue hover:bg-white"
               >
                 Donate Now

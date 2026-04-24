@@ -22,8 +22,7 @@ function PartnerBar() {
       initial="hidden"
       animate="visible"
       transition={{ delay: 1.0 }}
-      className="                 bg-brand-blue-deep/80 backdrop-blur-md
-                 border-t border-white/[0.08]"
+      className="bg-brand-blue-deep backdrop-blur-md border-t border-white/[0.08] absolute bottom-0 left-0 w-full z-50"
       role="complementary"
       aria-label="Partner organizations"
     >
@@ -89,8 +88,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="absolute inset-0 z-[1]
-                   bg-gradient-to-r from-brand-blue/90 via-brand-blue/55 to-brand-blue/10"
+          className="absolute inset-0 z-[1] bg-gradient-to-r from-brand-blue/90 via-brand-blue/55 to-brand-blue/10"
           aria-hidden="true"
         />
         <div
@@ -98,7 +96,7 @@ export default function Hero() {
                    bg-gradient-to-t from-brand-blue-deep/70 via-transparent to-transparent"
           aria-hidden="true"
         />
-        <div className="absolute bottom-20 left-0 right-0 z-[2]">
+        <div className="absolute bottom-20 left-0 right-0 z-[2] pb-24">
           <motion.div
             variants={heroContainer}
             initial="hidden"
@@ -137,7 +135,7 @@ export default function Hero() {
               className="flex flex-wrap gap-6 items-center md:text-lg xl:text-2xl "
             >
               <Link
-                href="#donate"
+                href="https://givebutter.com/islands-of-valor-initiative-gvl8ql"
                 className="group inline-flex items-center gap-2
                          text-white font-rundale font-medium tracking-wide
                          border-b border-white/40 pb-0.5
@@ -171,9 +169,8 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
+        <PartnerBar />
       </div>
-
-      <PartnerBar />
     </section>
   );
 }

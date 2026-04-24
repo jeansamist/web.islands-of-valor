@@ -111,9 +111,9 @@ export default function Footer() {
       role="contentinfo"
     >
       <img
-        src="/logo-white-icon.svg"
+        src="/Logo noir@4x.png"
         alt="Islands of Valor"
-        className="hidden lg:block h-96 absolute w-auto opacity-5 -translate-y-1/2 translate-x-1/4 right-0 top-1/2 pointer-events-none select-none"
+        className="hidden lg:block h-96 absolute w-auto opacity-5 brightness-0 invert -translate-y-1/2 translate-x-1/4 right-0 top-1/2 pointer-events-none select-none"
       />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         {/* Main grid */}
@@ -136,9 +136,9 @@ export default function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo-white-icon.svg"
+                src="/Logo noir@4x.png"
                 alt="Islands of Valor"
-                className="h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                className="h-24 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
               />
             </Link>
             <p className="font-montserrat font-light text-[0.84rem] text-white leading-[1.8] max-w-[220px]">

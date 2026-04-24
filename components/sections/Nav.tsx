@@ -90,25 +90,25 @@ export default function Nav() {
             <Link
               href="/"
               aria-label="Home"
-              className="w-44 md:w-44 aspect-[376.08/60]"
+              className="w-44 md:w-52 aspect-[381/49]"
             >
               {scrolled ? (
                 <Image
                   src={"/logoh@4x 1.png"}
                   alt="Logo"
-                  width={376.08}
+                  width={381}
                   objectFit="contain"
                   className="w-full!"
-                  height={60}
+                  height={49}
                 />
               ) : (
                 <Image
                   src={"/logoh@4x 2.png"}
                   alt="Logo"
-                  width={376.08}
+                  width={381}
                   objectFit="contain"
                   className="w-full! invert"
-                  height={60}
+                  height={49}
                 />
               )}
             </Link>
