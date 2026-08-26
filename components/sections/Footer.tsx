@@ -216,9 +216,20 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Islands of Valor. Registered
             501(c)(3) nonprofit organization. All rights reserved.
           </p>
-          <p className="font-montserrat text-[0.72rem] text-white/20 italic font-light">
-            Built with purpose, for those who served.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4">
+            <p className="font-montserrat text-[0.72rem] text-white/20 italic font-light">
+              Built with purpose, for those who served.
+            </p>
+            <a
+              href="https://webandbuzz.com"
+              target="_blank"
+              rel="noopener"
+              style={{ opacity: 0.7 }}
+              className="font-montserrat text-[0.72rem] text-white/40 hover:text-white transition-colors duration-150"
+            >
+              Website by Web&amp;Buzz
+            </a>
+          </div>
         </div>
       </div>
     </footer>
